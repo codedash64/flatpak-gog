@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Might be good to run the installer once some kinks are worked out
+# sh ./installer.sh -- --i-agree-to-all-licenses --noreadme --nooptions --noprompt --destination /app/game/
+
+unzip installer.sh -d game-extract
+rm installer.sh
+
+mkdir game
+mv game-extract/data/noarch/* .
+
+rm -r game-extract
+
+if [ -e /app/bin/postinstall ]
+then
+    /app/bin/postinstall
+fi

@@ -27,11 +27,6 @@
             "no-autogen": true,
             "sources": [
                 {
-                    "type": "archive",
-                    "path": "GAMEARCHIVE",
-                    "dest": "game-extract"
-                },
-                {
                     "type": "file",
                     "path": "gog-Makefile",
                     "dest-filename": "Makefile"
@@ -40,6 +35,10 @@
                     "type": "file",
                     "path": "gog-starter",
                     "dest-filename": "starter"
+                },
+                {
+                    "type": "file",
+                    "path": "apply_extra"
                 }
             ]
         }
