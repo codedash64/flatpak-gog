@@ -87,6 +87,103 @@
                     "sha256": "fba701168bc479c94279215c31ac04192b673c44c7203a1848c5a4f08628f606"
                 }
             ]
+        },
+        {
+            "name": "lgogdownloader",
+            "buildsystem": "cmake",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/Sude-/lgogdownloader/archive/v3.2.tar.gz",
+                    "sha256": "1e9f70278cb7616f1216bd3d3bb4b985e57c1322790bdb18044c326e0f182c0d"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "liboauth",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "http://sourceforge.net/projects/liboauth/files/liboauth-1.0.3.tar.gz",
+                            "sha256": "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
+                        }
+                    ]
+                },
+                {
+                    "name": "libboost",
+                    "config-opts": [
+                        "--with-libraries=regex,date_time,system,filesystem,program_options,iostreams"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://sourceforge.net/projects/boost/files/boost/1.63.0/boost_1_63_0.tar.bz2",
+                            "sha256": "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
+                        },
+                        {
+                            "type": "file",
+                            "path": "patches/boost-configure",
+                            "dest-filename": "configure"
+                        }
+                    ]
+                },
+                {
+                    "name": "libjsoncpp",
+                    "buildsystem": "cmake",
+                    "config-opts": [
+                        "-DBUILD_SHARED_LIBS=ON",
+                        "-DCMAKE_INSTALL_LIBDIR=/app/lib/",
+                        "-DBUILD_STATIC_LIBS=OFF"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/open-source-parsers/jsoncpp/archive/1.8.0.tar.gz",
+                            "sha256": "5deb2462cbf0c0121c9d6c9823ec72fe71417e34242e3509bc7c003d526465bc"
+                        }
+                    ]
+                },
+                {
+                    "name": "libhtmlcxx",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://sourceforge.net/projects/htmlcxx/files/htmlcxx/0.86/htmlcxx-0.86.tar.gz",
+                            "sha256": "07542b5ea2442143b125ba213b6823ff4a23fff352ecdd84bbebe1d154f4f5c1"
+                        }
+                    ]
+                },
+                {
+                    "name": "libtinyxml2",
+                    "buildsystem": "cmake",
+                    "config-opts": [
+                        "-DCMAKE_INSTALL_LIBDIR=/app/lib/"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/leethomason/tinyxml2/archive/4.0.1.tar.gz",
+                            "sha256": "14b38ef25cc136d71339ceeafb4856bb638d486614103453eccd323849267f20"
+                        }
+                    ]
+                },
+                {
+                    "name": "librhash",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "make build-shared",
+                        "make PREFIX=/app install-shared install-lib-shared",
+                        "make PREFIX=/app -C librhash install-so-link install-headers"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/rhash/RHash/archive/v1.3.4.tar.gz",
+                            "sha256": "1f6daa0c066c94d2575f0aace76f34e5800c51f59f4b30029ddcfa9799564f98"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
