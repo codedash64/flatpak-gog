@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cd /app/game/game/
+
+ln -s /usr/lib/libcurl.so.4 dontstarve32/bin/lib32/libcurl-gnutls.so.4
+ln -s /usr/lib/libcurl.so.4 dontstarve64/bin/lib64/libcurl-gnutls.so.4

@@ -1,0 +1,1 @@
+Game requires libcurl-gnutls.so.4 in library path. As a part of configuration set up symlinks to /usr/lib/libcurl.so.4.
